@@ -1,6 +1,6 @@
 <template>
-  <div draggable class="vdr" @mousedown.stop="elmDown" @dblclick="fillParent" :style="style"
-    :class="{ draggable: draggable, resizable: resizable, active: enabled, dragging: dragging, resizing: resizing }"
+  <div draggable='true' class="vdr" @mousedown.stop="elmDown" @dblclick="fillParent" :style="style"
+    :class="{ draggable: draggableProp, resizable: resizable, active: enabled, dragging: dragging, resizing: resizing }"
   >
     <div
       class="handle"
@@ -22,7 +22,7 @@ export default {
     active: {
       type: Boolean, default: false
     },
-    draggable: {
+    draggableProp: {
       type: Boolean, default: true
     },
     resizable: {
@@ -195,7 +195,7 @@ export default {
           this.$emit('update:active', true)
         }
 
-        if (this.draggable) {
+        if (this.draggableProp) {
           this.dragging = true
         }
       }
